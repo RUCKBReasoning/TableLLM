@@ -21,7 +21,7 @@ def inference(args):
     for i in range(len(datasets)):
         datasets[i]['assistant_code'] = responses[i].outputs[0].text.lstrip(' ')
         output.append(json.dumps(datasets[i], ensure_ascii=False) + '\n')
-    model_name = args.model_path[args.model_path.rfind('/') + 1:] if args.model_path.find('/') != -1 else model_name
+    model_name = args.model_path[args.model_path.rfind('/') + 1:] if args.model_path.find('/') != -1 else args.model_path
     with open(f'results/Infer_{model_name}.jsonl', 'w') as fp:
         fp.writelines(output)
 
