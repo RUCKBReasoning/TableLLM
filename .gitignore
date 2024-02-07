@@ -1,2 +1,3 @@
+.DS_Store
 evaluation/wikisql-eval/csv_tables
 evaluation/wikisql-eval/tmp/*
