@@ -111,3 +111,6 @@ For text generation, as the [CritiqueLLM](https://github.com/thu-coai/CritiqueLL
 cd evaluation/text-eval
 python get_sum_grade.py --grade_data ../../inference/results/TLLM-13b/Grade_wtq.jsonl
 ```
+
+## Contact
+If you have any questions, we encourage you to either create Github issues or get in touch with us at <tabularllm@gmail.com>.
