@@ -10,7 +10,7 @@ We evaluate the code solution generation ability of TableLLM on three benchmarks
 | Model                | WikiTQ | TAT-QA | FeTaQA |  OTTQA  | WikiSQL | Spider | Self-created | Average |
 | :------------------- | :----: | :----: | :----: | :-----: | :-----: | :----: | :----------: | :-----: |
 | TaPEX                |  38.5  |    –   |    –   |    –    |   83.9  |  15.0  |       /      |   45.8  |
-| TaPas                |  31.5  |    –   |    –   |    –    |   74.2  |  23.1  |       /      |   42.92 |
+| TaPas                |  31.5  |    –   |    –   |    –    |   74.2  |  23.1  |       /      |   42.9 |
 | TableLlama           |  24.0  |  22.2  |  20.5  |   6.4   |   43.7  |   9.0  |       /      |   20.7  |
 | GPT3.5               |  58.5  |<ins>72.1</ins>|  71.2  |  60.8   |   81.7   |  67.4  | 77.1 |   69.8  |
 | GPT4                 |**74.1**|**77.1**|**78.4**|**69.5** |   84.0  |  69.5  |     77.8     | **75.8**|
