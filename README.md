@@ -1,8 +1,16 @@
 # TableLLM: Enabling Tabular Data Manipulation by LLMs in Real Office Usage Scenarios
 
+| **[Home page](https://tablellm.github.io/)** | **[Model](https://huggingface.co/KAKA22/TableLLM-13b)** | **[Platform](http://36.103.203.47:27824/)** |
+
 We present **T**able**LLM**, a powerful large language model designed to handle tabular data manipulation tasks efficiently, whether they are embedded in spreadsheets or documents, meeting the demands of real office scenarios. The TableLLM series encompasses two distinct scales: [TableLLM-7B](https://huggingface.co/KAKA22/TableLLM-7b) and [TableLLM-13B](https://huggingface.co/KAKA22/TableLLM-13b), which are fine-tuned based on CodeLlama-7B and 13B.
 
 TableLLM generates either a code solution or a direct text answer to handle tabular data manipulation tasks based on different scenarios. Code generation is used for handling spreadsheet-embedded tabular data, which often involves the insert, delete, update, query, merge, and chart operations of tables. Text generation is used for handling document-embedded tabular data, which often involves the query operation of short tables.
+
+## News
+
+[2024/03] 🔥 We released training code.
+
+[2024/02] We released **TableLLM model**, fine-tuning code, inference code, benchmarks, and evaluation scripts.
 
 ## Evaluation Results
 We evaluate the code solution generation ability of TableLLM on three benchmarks: WikiSQL, Spider and Self-created table operation benchmark. The text answer generation ability is tested on four benchmarks: WikiTableQuestion (WikiTQ), TAT-QA, FeTaQA and OTTQA. The evaluation result is shown below:
