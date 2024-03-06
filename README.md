@@ -8,7 +8,7 @@ TableLLM generates either a code solution or a direct text answer to handle tabu
 
 ## News
 
-[2024/03] 🔥 We released training code.
+[2024/03] 🔥 We released trainset.
 
 [2024/02] We released **TableLLM model**, fine-tuning code, inference code, benchmarks, and evaluation scripts.
 
