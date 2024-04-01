@@ -1,6 +1,6 @@
 # TableLLM: Enabling Tabular Data Manipulation by LLMs in Real Office Usage Scenarios
 
-| **[Paper](https://arxiv.org/abs/2403.19318)** ｜ **[Homepage](https://tablellm.github.io/)** | **[Model](https://huggingface.co/RUCKBReasoning/TableLLM-13b)** | **[Training set](https://huggingface.co/datasets/RUCKBReasoning/TableLLM-SFT)** | **[Platform](http://36.103.203.47:27824/)** |
+| **[Paper](https://arxiv.org/abs/2403.19318)** | **[Homepage](https://tablellm.github.io/)** | **[Model](https://huggingface.co/RUCKBReasoning/TableLLM-13b)** | **[Training set](https://huggingface.co/datasets/RUCKBReasoning/TableLLM-SFT)** | **[Platform](http://36.103.203.47:27824/)** |
 
 We present **T**able**LLM**, a powerful large language model designed to handle tabular data manipulation tasks efficiently, whether they are embedded in spreadsheets or documents, meeting the demands of real office scenarios. The TableLLM series encompasses two distinct scales: [TableLLM-7B](https://huggingface.co/RUCKBReasoning/TableLLM-7b) and [TableLLM-13B](https://huggingface.co/RUCKBReasoning/TableLLM-13b), which are fine-tuned based on CodeLlama-7B and 13B.
 
