@@ -1,6 +1,6 @@
 # TableLLM: Enabling Tabular Data Manipulation by LLMs in Real Office Usage Scenarios
 
-| **[Paper](https://arxiv.org/abs/2403.19318)** | **[Homepage](https://tablellm.github.io/)** | **[Model](https://huggingface.co/RUCKBReasoning/TableLLM-13b)** | **[Training set](https://huggingface.co/datasets/RUCKBReasoning/TableLLM-SFT)** |
+| **[Paper](https://arxiv.org/abs/2403.19318)** | **[Homepage](https://tablellm.github.io/)** | **[Model](https://huggingface.co/RUCKBReasoning/TableLLM-13b)** | **[Training set](https://huggingface.co/datasets/RUCKBReasoning/TableLLM-SFT)** | **[Platform](http://36.103.203.47:27824/)** |
 
 We present **T**able**LLM**, a powerful large language model designed to handle tabular data manipulation tasks efficiently, whether they are embedded in spreadsheets or documents, meeting the demands of real office scenarios. The TableLLM series encompasses two distinct scales: [TableLLM-7B](https://huggingface.co/RUCKBReasoning/TableLLM-7b) and [TableLLM-13B](https://huggingface.co/RUCKBReasoning/TableLLM-13b), which are fine-tuned based on CodeLlama-7B and 13B.
 
@@ -8,11 +8,13 @@ TableLLM generates either a code solution or a direct text answer to handle tabu
 
 ## News
 
-[2024/04] 🔥 Our paper was published on [arxiv](https://arxiv.org/abs/2403.19318).
+[2024/06] 🔥 We open-source the frontend and backend for deploying TableLLM.
+
+[2024/04] 📑 Our paper was published on [arxiv](https://arxiv.org/abs/2403.19318).
 
 [2024/03] 📊 We released [training set](https://huggingface.co/datasets/RUCKBReasoning/TableLLM-SFT).
 
-[2024/02] We released **TableLLM model**, fine-tuning code, inference code, benchmarks, and evaluation scripts.
+[2024/02] 📦 We released **TableLLM model**, fine-tuning code, inference code, benchmarks, and evaluation scripts.
 
 ## Evaluation Results
 We evaluate the code solution generation ability of TableLLM on three benchmarks: WikiSQL, Spider and Self-created table operation benchmark. The text answer generation ability is tested on four benchmarks: WikiTableQuestion (WikiTQ), TAT-QA, FeTaQA and OTTQA. The evaluation result is shown below:
@@ -120,6 +122,37 @@ For text generation, as the [CritiqueLLM](https://github.com/thu-coai/CritiqueLL
 ```
 cd evaluation/text-eval
 python get_sum_grade.py --grade_data ../../inference/results/TableLLM-13b/Grade_wtq.jsonl
+```
+
+## Deployment
+You can use the code in ```deployment``` folder as the frontend and backend for deploying TableLLM.
+
+![platform](images/platform.png)
+
+Deploy TableLLM using vllm. Remember to modify the PORT and MODEL_PATH in the script and ```config.json```.
+```
+cd deployment
+bash scripts/deploy_tablellm.sh
+```
+
+Install mongodb and change the username and password to yours in ```config.json```. Prepare the default tables and questions:
+```
+bash prepare_default.sh
+```
+
+Deploy the streamlit app:
+```
+streamlit run streamlit.py --server.port PORT
+```
+
+## Citation
+```
+@article{zhang2024tablellm,
+  title={TableLLM: Enabling Tabular Data Manipulation by LLMs in Real Office Usage Scenarios},
+  author={Zhang, Xiaokang and Zhang, Jing and Ma, Zeyao and Li, Yang and Zhang, Bohan and Li, Guanlin and Yao, Zijun and Xu, Kangli and Zhou, Jinchang and Zhang-Li, Daniel and others},
+  journal={arXiv preprint arXiv:2403.19318},
+  year={2024}
+}
 ```
 
 ## Contact

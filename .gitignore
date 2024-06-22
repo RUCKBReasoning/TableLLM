@@ -8,3 +8,7 @@ evaluation/spider-eval/tmp/*
 
 evaluation/self-created-eval/infiagent
 evaluation/self-created-eval/tmp/*
+
+deployment/uploaded_files/*
+deployment/default_data/tables/infiagent
+deployment/default_data/tables/wtq
