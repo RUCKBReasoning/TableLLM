@@ -45,16 +45,6 @@ We use six public benchmarks and one self-created benchmark for evaluation. As t
 - Spider: As TableLLM currently focuses on single-table queries, we filter out single-table questions in Spider dev ser and also remove questions whose answers are empty.
 - Self-created: We create a new benchmark, including the insert, delete, update, query, merge, and chart operations of tables. For more details, please refer to the paper.
 
-## Inference
-The inference results of TableLLM are provided in ```inference/results``` folder. You can also obtain the inference result by yourself. The example commands of code and text generation are shown below:
-```
-cd inference
-
-python inference.py --dataset wikisql --model_path TableLLM-13b
-
-python inference.py --dataset wtq --model_path TableLLM-13b
-```
-
 ## Prompt Template
 The prompts we used for generating code solutions and text answers are introduced below.
 
@@ -109,6 +99,23 @@ The prompt template for direct text answer generation on short tables.
 
 ### [Solution][INST/]
 ````
+
+## Environment Setup
+
+Install the requirements with pip:
+```
+pip install -r requirements.txt
+```
+
+## Inference
+The inference results of TableLLM are provided in ```inference/results``` folder. You can also obtain the inference result by yourself. The example commands of code and text generation are shown below:
+```
+cd inference
+
+python inference.py --dataset wikisql --model_path TableLLM-13b
+
+python inference.py --dataset wtq --model_path TableLLM-13b
+```
 
 ## Evaluation
 The python code in ```evaluation``` folder is used for reproducing evaluation results. For code generation benchmarks, you can run the following command to reproduce the result of TableLLM-13b on WikiSQL:
