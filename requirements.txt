@@ -3,3 +3,6 @@ pandas==2.2.0
 transformers==4.37.2
 vllm
 torch
+streamlit
+pymongo
+requests
