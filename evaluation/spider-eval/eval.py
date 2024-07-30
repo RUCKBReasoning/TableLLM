@@ -1,6 +1,7 @@
 import warnings
 warnings.filterwarnings('ignore')
 import re
+import os
 import sys
 import json
 import runpy
@@ -110,6 +111,7 @@ def is_correct(code_result, ground_result, ground_result_list):
 
 
 def eval(args):
+    os.makedirs('tmp', exist_ok=True)
     # load data
     with open(args.infer_data, 'r') as fp:
         datasets = [json.loads(line) for line in fp.readlines()]

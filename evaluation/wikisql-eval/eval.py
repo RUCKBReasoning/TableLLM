@@ -1,6 +1,7 @@
 import warnings
 warnings.filterwarnings('ignore')
 import re
+import os
 import csv
 import sys
 import json
@@ -114,6 +115,7 @@ def check_none(value):
 
 
 def eval(args):
+    os.makedirs('tmp', exist_ok=True)
     with open(args.infer_data, 'r') as fp:
         infer_data = [json.loads(line) for line in fp.readlines()]
 

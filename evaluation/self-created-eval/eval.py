@@ -1,4 +1,5 @@
 import re
+import os
 import sys
 import json
 import runpy
@@ -88,6 +89,7 @@ def get_code_answer(datasets):
 
 
 def grading(args):
+    os.makedirs('tmp', exist_ok=True)
     # load data
     with open(args.infer_data, 'r') as fp:
         datasets = [json.loads(line) for line in fp.readlines()]
