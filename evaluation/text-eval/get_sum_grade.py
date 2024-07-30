@@ -1,6 +1,7 @@
 import re
 import json
 import argparse
+from grading import grading
 
 
 def find_content_between_double_square_brackets(input_str):
@@ -41,5 +42,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--grade_data', required=True, type=str, help='inference data path')
     args = parser.parse_args()
-
+    grading(args)
     get_result(args)
