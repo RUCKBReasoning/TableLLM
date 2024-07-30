@@ -108,13 +108,13 @@ pip install -r requirements.txt
 ```
 
 ## Inference
-The inference results of TableLLM are provided in ```inference/results``` folder. You can also obtain the inference result by yourself. The example commands of code and text generation are shown below:
+The inference results of TableLLM are provided in ```inference/results``` folder. You can also obtain the inference result by yourself. The example commands of spreadsheet-embedded tabular data (e.g., WikiSQL) and document-embedded tabular data (e.g., WTQ) are shown below:
 ```
 cd inference
 
-python inference.py --dataset wikisql --model_path TableLLM-13b
+python inference_code.py --dataset wikisql --model_path TableLLM-13b
 
-python inference.py --dataset wtq --model_path TableLLM-13b
+python inference_text.py --dataset wtq --model_path TableLLM-13b
 ```
 
 ## Evaluation
