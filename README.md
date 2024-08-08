@@ -125,7 +125,7 @@ tar -zxvf csv_tables.tar.gz
 python eval.py --infer_data ../../inference/results/TableLLM-13b/Infer_wikisql.jsonl
 ```
 
-For text generation, as the [CritiqueLLM](https://github.com/thu-coai/CritiqueLLM) we used has not been published yet, the judgement of CritiqueLLM is not reproducible. However, you can obtain the judgement result in ```inference/results``` folder and reproduce the results using the following command:
+For text generation, we use [CritiqueLLM](https://github.com/thu-coai/CritiqueLLM) for judgement. We also provide the judgement results running by ourselves. You can obtain it in ```inference/results``` folder and reproduce the results using the following command:
 ```
 cd evaluation/text-eval
 python get_sum_grade.py --grade_data ../../inference/results/TableLLM-13b/Grade_wtq.jsonl
