@@ -6,3 +6,4 @@ torch
 streamlit
 pymongo
 requests
+python-docx
