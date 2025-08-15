@@ -9,6 +9,8 @@ TableLLM generates either a code solution or a direct text answer to handle tabu
 ## News
 [2025/08] 🛠️ We updated the code, dataset and model checkpoint.
 
+[2025/05] 🎉 TableLLM has been accepted to ACL 2025 as a findings paper. 
+
 [2024/06] 🔥 We open-source the frontend and backend for deploying TableLLM.
 
 [2024/04] 📑 Our paper was published on [arxiv](https://arxiv.org/abs/2403.19318).
@@ -41,7 +43,6 @@ We use six public benchmarks and one self-created benchmark for evaluation. As t
 - WikiTQ: Limit the table to a token count of less than 500 and randomly sample 633 instances.
 - TAT-QA: Limit the table to a token count of less than 500 and randomly sample 800 instances.
 - FeTaQA: Limit the table to a token count of less than 500 and randomly sample 753 instances.
-- OTTQA: Limit the table to a token count of less than 500 and use all instances that meet this condition.
 - WikiSQL: As the WikiSQL testset contains incorrect answers and ambiguous questions, we manually filter out 1000 records and construct a subset of the WikiSQL testset called wikisql-human-annotated.
 - Spider: As TableLLM currently focuses on single-table queries, we filter out single-table questions in Spider dev ser and also remove questions whose answers are empty.
 - Self-created: We create a new benchmark, including the insert, delete, update, query, merge, and chart operations of tables. For more details, please refer to the paper.
@@ -157,11 +158,11 @@ streamlit run streamlit.py --server.port PORT
 ```
 @article{zhang2024tablellm,
   title={TableLLM: Enabling Tabular Data Manipulation by LLMs in Real Office Usage Scenarios},
-  author={Zhang, Xiaokang and Zhang, Jing and Ma, Zeyao and Li, Yang and Zhang, Bohan and Li, Guanlin and Yao, Zijun and Xu, Kangli and Zhou, Jinchang and Zhang-Li, Daniel and others},
+  author={Zhang, Xiaokang and Luo, Sijia and Zhang, Bohan and Ma, Zeyao and Zhang, Jing and Li Yang and Li, Guanlin and Yao, Zijun and Xu, Kangli and Zhou, Jinchang and Zhang-Li, Daniel and others},
   journal={arXiv preprint arXiv:2403.19318},
   year={2024}
 }
 ```
 
 ## Contact
-If you have any questions, we encourage you to either create Github issues or get in touch with us at <zhang2718@ruc.edu.cn>, <zeyaoma@ruc.edu.cn>, or <zhang-jing@ruc.edu.cn>.
+If you have any questions, we encourage you to either create Github issues or get in touch with us at <zhang2718@ruc.edu.cn>, <luosijia0906@ruc.edu.cn>, or <zhang-jing@ruc.edu.cn>.
