@@ -2,11 +2,14 @@
 
 | **[Paper](https://arxiv.org/abs/2403.19318)** | **[Homepage](https://tablellm.github.io/)** | **[Model](https://huggingface.co/RUCKBReasoning/TableLLM-13b)** | **[Training set](https://huggingface.co/datasets/RUCKBReasoning/TableLLM-SFT)** |
 
-We present **T**able**LLM**, a powerful large language model designed to handle tabular data manipulation tasks efficiently, whether they are embedded in spreadsheets or documents, meeting the demands of real office scenarios. The TableLLM series encompasses two distinct scales: [TableLLM-7B](https://huggingface.co/RUCKBReasoning/TableLLM-7b) and [TableLLM-13B](https://huggingface.co/RUCKBReasoning/TableLLM-13b), which are fine-tuned based on CodeLlama-7B and 13B.
+We present **T**able**LLM**, a powerful large language model designed to handle tabular data manipulation tasks efficiently, whether they are embedded in spreadsheets or documents, meeting the demands of real office scenarios. The TableLLM [TableLLM-8B](https://huggingface.co/RUCKBReasoning/TableLLM-8b) are fine-tuned based on Llama3.1-8B.
 
 TableLLM generates either a code solution or a direct text answer to handle tabular data manipulation tasks based on different scenarios. Code generation is used for handling spreadsheet-embedded tabular data, which often involves the insert, delete, update, query, merge, and chart operations of tables. Text generation is used for handling document-embedded tabular data, which often involves the query operation of short tables.
 
 ## News
+[2025/08] 🛠️ We updated the code, dataset and model checkpoint.
+
+[2025/05] 🎉 TableLLM has been accepted to ACL 2025 as a findings paper. 
 
 [2024/06] 🔥 We open-source the frontend and backend for deploying TableLLM.
 
@@ -17,30 +20,29 @@ TableLLM generates either a code solution or a direct text answer to handle tabu
 [2024/02] 📦 We released **TableLLM model**, fine-tuning code, inference code, benchmarks, and evaluation scripts.
 
 ## Evaluation Results
-We evaluate the code solution generation ability of TableLLM on three benchmarks: WikiSQL, Spider and Self-created table operation benchmark. The text answer generation ability is tested on four benchmarks: WikiTableQuestion (WikiTQ), TAT-QA, FeTaQA and OTTQA. The evaluation result is shown below:
+We evaluate the code solution generation ability of TableLLM on three benchmarks: WikiSQL, Spider and Self-created table operation benchmark. The text answer generation ability is tested on four benchmarks: WikiTableQuestion (WikiTQ), TAT-QA, FeTaQA. The evaluation result is shown below:
 
-| Model                | WikiTQ | TAT-QA | FeTaQA |  OTTQA  | WikiSQL | Spider | Self-created | Average |
-| :------------------- | :----: | :----: | :----: | :-----: | :-----: | :----: | :----------: | :-----: |
-| TaPEX                |  38.5  |    –   |    –   |    –    |   83.9  |  15.0  |       /      |   45.8  |
-| TaPas                |  31.5  |    –   |    –   |    –    |   74.2  |  23.1  |       /      |   42.9 |
-| TableLlama           |  24.0  |  22.2  |  20.5  |   6.4   |   43.7  |   9.0  |       /      |   20.7  |
-| GPT3.5               |  58.5  |<ins>72.1</ins>|  71.2  |  60.8   |   81.7   |  67.4  | 77.1 |   69.8  |
-| GPT4                 |**74.1**|**77.1**|**78.4**|**69.5** |   84.0  |  69.5  |     77.8     | **75.8**|
-| Llama2-Chat (13B)    |  48.8  |  49.6  |  67.7  |  61.5   |    –    |    –   |       –      |   56.9  |
-| CodeLlama (13B)      |  43.4  |  47.2  |  57.2  |  49.7   |   38.3  |  21.9  |     47.6     |   43.6  |
-| Deepseek-Coder (33B) |   6.5  |  11.0  |   7.1  |   7.4   |   72.5  |  58.4  |     73.9     |   33.8  |
-| StructGPT (GPT3.5)   |  52.5  |  27.5  |  11.8  |  14.0   |   67.8  |**84.8**|       /      |   48.9  |
-| Binder (GPT3.5)      |  61.6  |  12.8  |   6.8  |   5.1   |   78.6  |  52.6  |       /      |   42.5  |
-| DATER (GPT3.5)       |  53.4  |  28.4  |  18.3  |  13.0   |   58.2  |  26.5  |       /      |   37.0  |
-| TableLLM-7B (Ours)   |  58.8  |  66.9  |  72.6  |<ins>63.1</ins>|<ins>86.6</ins>|  82.6  |<ins>78.8</ins>|   72.8  |
-| TableLLM-13B (Ours)  |<ins>62.4</ins>|  68.2  |<ins>74.5</ins>|  62.5   | **90.7**|<ins>83.4</ins>|   **80.8**   |<ins>74.7</ins>|
+| Model                | WikiTQ | TAT-QA | FeTaQA | WikiSQL | Spider | Self-created | Average |
+| :------------------- | :----: | :----: | :----: | :-----: | :----: | :----------: | :-----: |
+| TaPEX                |  38.6  |    –   |    –   |   83.9  |  15.0  |       /      |   45.8  |
+| TaPas                |  31.6  |    –   |    –   |   74.2  |  23.1  |       /      |   43.0 |
+| TableLlama           |  24.0  |  22.3  |  20.5  |   43.7  |    -   |       /      |   23.4  |
+| TableGPT2(7B)        |  77.3  |  88.1  |  75.6  |   63.0  |  77.3  |     74.4     |   76.0  |
+| Llama3.1(8B)         |  71.9  |  74.3  |  83.4  |   40.6  |  18.8  |     43.2     |   55.3  |
+| GPT3.5               |  58.5  |  72.1  |  71.2  |   81.7  |  67.4  |     77.1     |   69.8  |
+| GPT4o                |**91.5**|**91.5**|**94.4**|<ins>84.0</ins>|  69.5  |<ins>77.8</ins>|<ins>84.8</ins>|
+| CodeLlama (13B)      |  43.4  |  47.3  |  57.2  |   38.3  |  21.9  |     47.6     |   43.6  |
+| Deepseek-Coder (33B) |   6.5  |  11.0  |   7.1  |   72.5  |  58.4  |     73.9     |   33.8  |
+| StructGPT (GPT3.5)   |  52.5  |  27.5  |  11.8  |   67.8  |**84.8**|       /      |   43.1  |
+| Binder (GPT3.5)      |  61.6  |  12.8  |   6.9  |   78.6  |  52.6  |       /      |   36.3  |
+| DATER (GPT3.5)       |  53.4  |  28.5  |  18.3  |   58.2  |  26.5  |       /      |   33.0  |
+| TableLLM-8B (Ours)  |<ins>89.1</ins>|<ins>89.5</ins>|<ins>93.36</ins>| **89.6**|<ins>81.1</ins>|<ins>77.8</ins>| **86.7**|
 
 ## Benchmark Details
 We use six public benchmarks and one self-created benchmark for evaluation. As the public benchmarks we used are modified to fit the application scenario of TableLLM, we provide a detailed description of these public benchmarks and self-created benchmarks below. You can obtain the original file of these benchmarks in ```benchmark``` folder.
 - WikiTQ: Limit the table to a token count of less than 500 and randomly sample 633 instances.
 - TAT-QA: Limit the table to a token count of less than 500 and randomly sample 800 instances.
 - FeTaQA: Limit the table to a token count of less than 500 and randomly sample 753 instances.
-- OTTQA: Limit the table to a token count of less than 500 and use all instances that meet this condition.
 - WikiSQL: As the WikiSQL testset contains incorrect answers and ambiguous questions, we manually filter out 1000 records and construct a subset of the WikiSQL testset called wikisql-human-annotated.
 - Spider: As TableLLM currently focuses on single-table queries, we filter out single-table questions in Spider dev ser and also remove questions whose answers are empty.
 - Self-created: We create a new benchmark, including the insert, delete, update, query, merge, and chart operations of tables. For more details, please refer to the paper.
@@ -112,23 +114,23 @@ The inference results of TableLLM are provided in ```inference/results``` folder
 ```
 cd inference
 
-python inference_code.py --dataset wikisql --model_path TableLLM-13b
+python inference_code.py --dataset wikisql --model_path TableLLM-8b
 
-python inference_text.py --dataset wtq --model_path TableLLM-13b
+python inference_text.py --dataset wtq --model_path TableLLM-8b
 ```
 
 ## Evaluation
-The python code in ```evaluation``` folder is used for reproducing evaluation results. For code generation benchmarks, you can run the following command to reproduce the result of TableLLM-13b on WikiSQL:
+The python code in ```evaluation``` folder is used for reproducing evaluation results. For code generation benchmarks, you can run the following command to reproduce the result of TableLLM-8b on WikiSQL:
 ```
 cd evaluation/wikisql-eval
 tar -zxvf csv_tables.tar.gz 
-python eval.py --infer_data ../../inference/results/TableLLM-13b/Infer_wikisql.jsonl
+python eval.py --infer_data ../../inference/results/TableLLM-8b/Infer_wikisql.jsonl
 ```
 
-For text generation, we use [CritiqueLLM](https://github.com/thu-coai/CritiqueLLM) for judgement. We also provide the judgement results running by ourselves. You can obtain it in ```inference/results``` folder and reproduce the results using the following command:
+For text generation, you can obtain it in ```inference/results``` folder and reproduce the results using the following command:
 ```
 cd evaluation/text-eval
-python get_sum_grade.py --grade_data ../../inference/results/TableLLM-13b/Grade_wtq.jsonl
+python get_sum_grade.py --grade_data ../../inference/results/TableLLM-8b/Grade_wtq.jsonl
 ```
 
 ## Deployment
@@ -156,11 +158,11 @@ streamlit run streamlit.py --server.port PORT
 ```
 @article{zhang2024tablellm,
   title={TableLLM: Enabling Tabular Data Manipulation by LLMs in Real Office Usage Scenarios},
-  author={Zhang, Xiaokang and Zhang, Jing and Ma, Zeyao and Li, Yang and Zhang, Bohan and Li, Guanlin and Yao, Zijun and Xu, Kangli and Zhou, Jinchang and Zhang-Li, Daniel and others},
+  author={Zhang, Xiaokang and Luo, Sijia and Zhang, Bohan and Ma, Zeyao and Zhang, Jing and Li Yang and Li, Guanlin and Yao, Zijun and Xu, Kangli and Zhou, Jinchang and Zhang-Li, Daniel and others},
   journal={arXiv preprint arXiv:2403.19318},
   year={2024}
 }
 ```
 
 ## Contact
-If you have any questions, we encourage you to either create Github issues or get in touch with us at <zhang2718@ruc.edu.cn>, <zeyaoma@ruc.edu.cn>, or <zhang-jing@ruc.edu.cn>.
+If you have any questions, we encourage you to either create Github issues or get in touch with us at <zhang2718@ruc.edu.cn>, <luosijia0906@ruc.edu.cn>, or <zhang-jing@ruc.edu.cn>.

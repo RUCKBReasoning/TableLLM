@@ -70,6 +70,15 @@ class DataTrainingArguments:
         default=None, metadata={"help": "The input training data file (a jsonlines or csv file)."}
     )
 
+    preprocessing_num_workers: Optional[int] = field(
+        default=1,
+        metadata={
+            "help": (
+                "The number of processes to use for the preprocessing."
+            )
+        },
+    )
+
     max_seq_length: Optional[int] = field(
         default=2048,
         metadata={
@@ -107,10 +116,6 @@ class DataTrainingArguments:
         default=False, metadata={"help": "Overwrite the cached training and evaluation sets"}
     )
 
-    preprocessing_num_workers: Optional[int] = field(
-        default=None,
-        metadata={"help": "The number of processes to use for the preprocessing."},
-    )
 
     max_seq_length: Optional[int] = field(
         default=1024,
