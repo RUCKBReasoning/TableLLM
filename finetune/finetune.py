@@ -81,14 +81,29 @@ def main():
     set_seed(training_args.seed)
 
     # Load pretrained model and tokenizer
+
     tokenizer = AutoTokenizer.from_pretrained(
         model_args.model_name_or_path, trust_remote_code=True
     )
-    tokenizer.pad_token = "[PAD]"
-    print(f"pad_token_id={tokenizer.pad_token_id}")
+
     model = transformers.AutoModelForCausalLM.from_pretrained(
-        model_args.model_name_or_path, trust_remote_code=True
-    )
+            model_args.model_name_or_path, trust_remote_code=True
+        )
+    tokenizer.pad_token = tokenizer.eos_token
+    # num_added_toks = tokenizer.add_tokens(['[PAD]'])
+    # if num_added_toks > 0:
+    #     # Resize the token embeddings in the model
+    #     model = transformers.AutoModelForCausalLM.from_pretrained(
+    #         model_args.model_name_or_path, trust_remote_code=True
+    #     )
+    #     model.resize_token_embeddings(len(tokenizer))
+
+    # # Set the pad_token_id to the ID of the last added token
+    # tokenizer.pad_token = '[PAD]'
+    # tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids('[PAD]')
+
+    # # Now set the pad_token_id in the model's configuration
+    # model.config.pad_token_id = tokenizer.pad_token_id
 
     with open(data_args.train_file, "r", encoding="utf-8") as f:
         if data_args.train_file.endswith(".json"):
