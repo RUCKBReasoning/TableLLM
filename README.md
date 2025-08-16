@@ -2,7 +2,7 @@
 
 | **[Paper](https://arxiv.org/abs/2403.19318)** | **[Homepage](https://tablellm.github.io/)** | **[Model](https://huggingface.co/RUCKBReasoning/TableLLM-13b)** | **[Training set](https://huggingface.co/datasets/RUCKBReasoning/TableLLM-SFT)** |
 
-We present **T**able**LLM**, a powerful large language model designed to handle tabular data manipulation tasks efficiently, whether they are embedded in spreadsheets or documents, meeting the demands of real office scenarios. The TableLLM [TableLLM-8B](https://huggingface.co/RUCKBReasoning/TableLLM-7b) are fine-tuned based on Llama3.1-8B.
+We present **T**able**LLM**, a powerful large language model designed to handle tabular data manipulation tasks efficiently, whether they are embedded in spreadsheets or documents, meeting the demands of real office scenarios. The TableLLM [TableLLM-8B](https://huggingface.co/RUCKBReasoning/TableLLM-8b) are fine-tuned based on Llama3.1-8B.
 
 TableLLM generates either a code solution or a direct text answer to handle tabular data manipulation tasks based on different scenarios. Code generation is used for handling spreadsheet-embedded tabular data, which often involves the insert, delete, update, query, merge, and chart operations of tables. Text generation is used for handling document-embedded tabular data, which often involves the query operation of short tables.
 
@@ -114,23 +114,23 @@ The inference results of TableLLM are provided in ```inference/results``` folder
 ```
 cd inference
 
-python inference_code.py --dataset wikisql --model_path TableLLM-13b
+python inference_code.py --dataset wikisql --model_path TableLLM-8b
 
-python inference_text.py --dataset wtq --model_path TableLLM-13b
+python inference_text.py --dataset wtq --model_path TableLLM-8b
 ```
 
 ## Evaluation
-The python code in ```evaluation``` folder is used for reproducing evaluation results. For code generation benchmarks, you can run the following command to reproduce the result of TableLLM-13b on WikiSQL:
+The python code in ```evaluation``` folder is used for reproducing evaluation results. For code generation benchmarks, you can run the following command to reproduce the result of TableLLM-8b on WikiSQL:
 ```
 cd evaluation/wikisql-eval
 tar -zxvf csv_tables.tar.gz 
-python eval.py --infer_data ../../inference/results/TableLLM-13b/Infer_wikisql.jsonl
+python eval.py --infer_data ../../inference/results/TableLLM-8b/Infer_wikisql.jsonl
 ```
 
-For text generation, we use [CritiqueLLM](https://github.com/thu-coai/CritiqueLLM) for judgement. We also provide the judgement results running by ourselves. You can obtain it in ```inference/results``` folder and reproduce the results using the following command:
+For text generation, you can obtain it in ```inference/results``` folder and reproduce the results using the following command:
 ```
 cd evaluation/text-eval
-python get_sum_grade.py --grade_data ../../inference/results/TableLLM-13b/Grade_wtq.jsonl
+python get_sum_grade.py --grade_data ../../inference/results/TableLLM-8b/Grade_wtq.jsonl
 ```
 
 ## Deployment
